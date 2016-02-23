@@ -86,7 +86,58 @@ def tunnel():
     
         else: 
             print "You couldn't remember where to attack and the hell worm ate you."
-            death()        
+            death()
+
+def poison():
+    print "The hell worm is a particularly nasty insect, more dragon cycloptic then worm, it\'s teeth are sharper then diamonds."
+    print "Your instructors taught you well however and you know the only two ways to incapacitate a hell worm.
+    print "Where must you attack on the hell worm to survive?"
+    
+    choice = raw_input("> ")
+    
+    while choice != "eye" or choice != "tongue":
+    
+        if choice == "eye": 
+            print "You attack the hell worm's eye with your spade, blinding it."
+            print "It's a good thing you paid extra attention in \'Violent Creatures and How to Use Them: 101 \'."
+            print "You keep digging until you finally emerge on the other side of the wall."
+            sphinx()
+    
+        elif choice == "tongue":
+            print "You stabbed the hell worms tongue."
+            print "You knicked yourself in the process however on it\'s diamond teeth."
+            print "You better get out of the maze quickly before you bleed to death!"
+            sphinx()
+    
+        else: 
+            print "You couldn't remember where to attack and the hell worm ate you."
+            death() 
+            
+            
+def yourself():
+    print "The hell worm is a particularly nasty insect, more dragon cycloptic then worm, it\'s teeth are sharper then diamonds."
+    print "Your instructors taught you well however and you know the only two ways to incapacitate a hell worm.
+    print "Where must you attack on the hell worm to survive?"
+    
+    choice = raw_input("> ")
+    
+    while choice != "eye" or choice != "tongue":
+    
+        if choice == "eye": 
+            print "You attack the hell worm's eye with your spade, blinding it."
+            print "It's a good thing you paid extra attention in \'Violent Creatures and How to Use Them: 101 \'."
+            print "You keep digging until you finally emerge on the other side of the wall."
+            sphinx()
+    
+        elif choice == "tongue":
+            print "You stabbed the hell worms tongue."
+            print "You knicked yourself in the process however on it\'s diamond teeth."
+            print "You better get out of the maze quickly before you bleed to death!"
+            sphinx()
+    
+        else: 
+            print "You couldn't remember where to attack and the hell worm ate you."
+            death()  
         
         
 def lorr1():
