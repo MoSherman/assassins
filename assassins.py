@@ -88,13 +88,14 @@ def tunnel():
             print "\nYou attack the hell worm's eye with your spade, blinding it."
             print "It's a good thing you paid extra attention in \'Violent Creatures and How to Use Them: 101 \'."
             print "You keep digging until you finally emerge on the other side of the wall.\n"
-            sphinx()
+            spinhx()
     
         elif choice == "tongue":
             print "\nYou stabbed the hell worms tongue."
             print "You nicked yourself in the process however on it\'s diamond teeth."
             print "You better get out of the maze quickly before you bleed to death!\n"
-            sphinx()
+            print "You keep digging and eventually you emerge into the next room.\n"
+            spinhx()
             
         elif choice == "hint":
             print "\nYou can either attack the hell worms 'eye' or 'tongue.'\n"
@@ -182,7 +183,7 @@ def death():
     print "But don't feel too bad!."
     print "At least you were brave enough to try! Maybe in your next life you can come back as a Moon Priest instead!"
     print "You were never very suited to this whole killing thing, much better to run around naked on the full moon."
-    print "You probably make less friends that want to kill you that way too!"
+    print "You probably make less friends that want to kill you that way too!\n"
     exit(0)
 
 def congrats():
@@ -190,7 +191,7 @@ def congrats():
     print "You have proved yourself to be worthy of joining the guild, but you remember all those who tried and failed before you."
     print "The life of an assassin is not for everyone, but you have proven yourself beyond doubt."
     print "You exit the maze to a round of applause from you instructors."
-    print "Your favourite instructor yells out only one piece of wisdom, the true lesson of the maze: Non mortem timemus, sed cogitationem mortis."
+    print "Your favourite instructor yells out only one piece of wisdom, the true lesson of the maze: Non mortem timemus, sed cogitationem mortis.\n"
     exit(0)
 
 def start():
