@@ -62,7 +62,7 @@ html_head = """
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="bmm.py">BMM</a>
+      <a class="navbar-brand" href="wsgiassassins.py/start">The Maze of the Assassins</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
@@ -292,6 +292,8 @@ def playagain():
         return "You must choose! \(Enter y or n only!\)\n"
         choice = raw_input("(y/n) ")
 
+    
+        
 def start():
     return html_head + """
     <div class="container-fluid bg-3 text-justify"> 
@@ -320,9 +322,12 @@ def start():
             <p class=text-justify>
                 Are you sure you want to go in? (y/n)
             </p>
-            <FORM value="form" action="bmm.py/get_info" method="post">
+            <p class=text-justify>
+                        
+            </p>
+            <FORM value="form" action="start_choice" method="post">
                 <P>            
-                    <input type=\"text\">
+                    <input type="text" name="choice">
                 </P>
             </FORM>
         </div>
@@ -332,20 +337,20 @@ def start():
 """
 #<input type=\"text\" color:#FFFFFF value=\">\" style=\"background-color:transparent;border:0px solid white;>
 
+def start_choice(req):
+    
+    info     = req.form
+    choice   = info['choice']
 
-    
-    choice = raw_input(" ")
-    
     if choice == "y":
-        enter()
+        return enter()
     
     elif choice == "n":
-        noenter()
+        return noenter()
     
     else:
         return "You must choose! \(Enter y or n only!\)\n"
         choice = raw_input("Are you sure you want to go in? (y/n) ")
-        
-start()
+
 
 #END
