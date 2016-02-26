@@ -5,7 +5,7 @@ from sys import exit
 def enter():
     print "Congrats! You passed the first test, had you refused to enter the guild would not have been pleased..."
     print "There is no turning back now as the door shuts behind you."
-    print "You see however that there are no doors in the room your in, just four stone walls. What will you do? /n"
+    print "You see however that there are no doors in the room you are in, just four stone walls. What will you do? /n"
     
     choice = raw_input("> ")
     
@@ -14,7 +14,7 @@ def enter():
         if choice == "climb": 
             print "You test the strength of the wall and it's stones and decide to climb over."
             print "You manage to avoid the poison spikes on top of the wall just barely and land silently on the other side."
-            spinhx()
+            sphinx()
     
         elif choice == "dig":
             print "You remove your foldable spade from your bag and begin to dig under the wall in front of you."
@@ -22,6 +22,10 @@ def enter():
             print "This is confirmed a moment later when a hell worm bursts through the wall of you tunnel."
             
             tunnel()
+        
+        elif choice == "hint":
+            print "You can either 'climb' or 'dig.'"
+            choice = raw_input("> ")
     
         else: 
             print "Your favorite instructor takes pity on your poor start and yells out 'climb or dig you fool!'."
@@ -30,7 +34,7 @@ def enter():
 def noenter():
     print "You choose not to enter the maze."
     print "This is a mistake."
-    print "'You have failed the first test' yells the master assassain, 'cowards never prosper!'"
+    print "'You have failed the first test' yells the master assassin, 'cowards never prosper!'"
     print "The guild is so displeased with you decision that they all attack you at once."
     print "It all happened so quickly no one was really sure what got you in the end."
     print "There wasn't enough left to figure it out really."
@@ -38,34 +42,41 @@ def noenter():
 
 def spinhx():
     print "Before you can even get you bearings you realize you are not alone."
-    print "Sitting silently before the only exit in front of you is a perticularly grumpy looking spinhx."
+    print "Sitting silently before the only exit in front of you is a particularly grumpy looking spinhx."
     print "You can not risk running around the spinhx or fighting it as both would mean certain death."
     print "You must answer it's riddle."
     print "The spinhx speaks suddenly in a deep voice but says something rather unexpected."
     print "'Look kid I\'m not really in the mood for human today so I\'ll give you an easy one.'"
-    print "'Voiceless it cries,\nWingless flutters,\nToothless bites,\nMouthless mutters.\nIf you don\'t know what that is then you deserve to be easten probably!'"
+    print "'Voiceless it cries,\nWingless flutters,\nToothless bites,\nMouthless mutters.\nIf you don\'t know what that is then you deserve to be eaten!' The sphinx yells."
     
     
     choice = raw_input("> ")
     guesses = 0
     
-    while choice != 'wind' and guesses < 2:
-        print "\'Really?\' says the sphinx \'%r is you best guess? Do you read!? Try again!\'" % choice
-        choice = raw_input("> ")
+    while choice != 'wind' or choice != 'hint' and guesses < 2:
+            
+        if choice == "wind":
+            print "Despite being not very good with riddles, even you got this one eventually."
+            print "The cranky spinhx shuffles into the corner to take a nap and you walk through the door before you."
+            lorr1()
     
-    if choice == "wind":
-        print "Despite being not very good with riddles, even you got this one eventually."
-        print "The cranky spinhx shuffles into the corner to take a nap and you walk through the door before you."
-        lorr1()
+        elif choice == "hint":
+            print "This well known riddle was taken from 'The Hobbit.'"
+            choice = raw_input("> ")
         
-    else:
-        print "'My patience is gone and your futile attempts have made me hangry!' says the spinhx."
-        print "It grabs you and though you struggle mightly there is no escape!"
-        death()
+        elif choice != "wind" or choice != "hint":
+            print "\'Really?\' says the sphinx \'%r is you best guess? Do you read!? Try again!\'" % choice
+            guesses += 1
+            choice = raw_input("> ")
+        
+        else:
+            print "'My patience is gone and your futile attempts have made me hangry!' says the spinhx."
+            print "It grabs you and though you struggle mightily there is no escape!"
+            death()
 
 def tunnel():
-    print "The hell worm is a particularly nasty insect, more dragon cycloptic then worm, it\'s teeth are sharper then diamonds."
-    print "Your instructors taught you well however and you know the only two ways to incapacitate a hell worm.
+    print "The hell worm is a particularly nasty insect, more dragon cycloptic then worm, it\'s teeth are sharper than diamonds."
+    print "Your instructors taught you well however and you know the only two ways to incapacitate a hell worm."
     print "Where must you attack on the hell worm to survive?"
     
     choice = raw_input("> ")
@@ -80,64 +91,71 @@ def tunnel():
     
         elif choice == "tongue":
             print "You stabbed the hell worms tongue."
-            print "You knicked yourself in the process however on it\'s diamond teeth."
+            print "You nicked yourself in the process however on it\'s diamond teeth."
             print "You better get out of the maze quickly before you bleed to death!"
             sphinx()
+            
+        elif choice == "hint":
+            print "You can either attack the hell worms 'eye' or 'tongue.'"
+            choice = raw_input("> ")
     
         else: 
             print "You couldn't remember where to attack and the hell worm ate you."
             death()
 
 def poison():
-    print "The hell worm is a particularly nasty insect, more dragon cycloptic then worm, it\'s teeth are sharper then diamonds."
-    print "Your instructors taught you well however and you know the only two ways to incapacitate a hell worm.
-    print "Where must you attack on the hell worm to survive?"
+    print "You turn left and continue on until you enter another room."
+    print "Suddenly the door slams shut behind you."
+    print "There will be no way out of this room by brute force you observer, as the walls, ceiling, and floor are made of troll steel."
+    print "A table stand in the the room upon which sits three glasses filled with unknown liquids."
+    print "Apparently two of the glasses contain poison, while a third is a potion which will give you the ability to walk through walls for about 10 seconds."
+    print "On the wall of the room is written only this: Audaces fortuna iuvat."
+    print "You must drink either the 'yellow', 'green', or 'blue' liquids. Which will you choose?"
     
     choice = raw_input("> ")
     
-    while choice != "eye" or choice != "tongue":
+    while choice != "yellow" or choice != "green" or choice != "blue":
     
-        if choice == "eye": 
-            print "You attack the hell worm's eye with your spade, blinding it."
-            print "It's a good thing you paid extra attention in \'Violent Creatures and How to Use Them: 101 \'."
-            print "You keep digging until you finally emerge on the other side of the wall."
-            sphinx()
-    
-        elif choice == "tongue":
-            print "You stabbed the hell worms tongue."
-            print "You knicked yourself in the process however on it\'s diamond teeth."
-            print "You better get out of the maze quickly before you bleed to death!"
-            sphinx()
-    
+        if choice == "yellow" or choice == "green" or choice == "blue": 
+            print "You know that fortune favours the bold."
+            print "So you grab the %r liquid\'s glass and gulp it down." % choice
+            print "As you sprint at the wall, you really hope fortune also favours the reckless."
+            yourself()
+            
         else: 
-            print "You couldn't remember where to attack and the hell worm ate you."
+            print "You choose not to drink any of the specified coloured liquids."
+            print "What you did not know was that fortune does not favour the coward, and had you drank from any of the glasses, you could have passed through the wall."
+            print "Instead you were stuck in the room until your bitter end."
             death() 
             
             
 def yourself():
-    print "The hell worm is a particularly nasty insect, more dragon cycloptic then worm, it\'s teeth are sharper then diamonds."
-    print "Your instructors taught you well however and you know the only two ways to incapacitate a hell worm.
-    print "Where must you attack on the hell worm to survive?"
+    print "You enter the next room and realize that only one obstacle stand between you and the exit to the maze."
+    print "At first you believe there to be a mirror in the room, but alas the person before you is very real."
+    print "Then you remember what makes a true assassin. Knowing that you can be your own worst enemy."
+    print "You know the doppelganger before you is identical in every way, conjured here by magic from the witches guild."
+    print "You begin to spar with yourself, but you seem to be evenly matched."
+    print "How will you get to the exit?"
     
     choice = raw_input("> ")
     
-    while choice != "eye" or choice != "tongue":
+    while choice != "kill" or choice != "run":
     
-        if choice == "eye": 
-            print "You attack the hell worm's eye with your spade, blinding it."
-            print "It's a good thing you paid extra attention in \'Violent Creatures and How to Use Them: 101 \'."
-            print "You keep digging until you finally emerge on the other side of the wall."
-            sphinx()
+        if choice == "kill": 
+            print "You know that even the best assassin can be beaten."
+            print "You fight valiantly for hours and hours, and eventually the magic animating the doppelganger begins to fade."
+            print "As the last wisps of smoke from what was once your doppelganger rises out of the maze, you stumble towards the exit."
+            congrats()
     
-        elif choice == "tongue":
-            print "You stabbed the hell worms tongue."
-            print "You knicked yourself in the process however on it\'s diamond teeth."
-            print "You better get out of the maze quickly before you bleed to death!"
-            sphinx()
+        elif choice == "run":
+            print "You could not face yourself."
+            print "You try to run around the doppelganger but he stabs you in the back like any good assassin would."
+            print "You failed in your final test: believing in yourself, even against yourself."
+            death()
     
         else: 
-            print "You couldn't remember where to attack and the hell worm ate you."
-            death()  
+            print "You only have two choices: 'kill' the doppelganger or 'run' to the door."
+            choice = raw_input("> ")  
         
         
 def lorr1():
@@ -149,11 +167,9 @@ def lorr1():
     while choice != "left" or choice != "right":
     
         if choice == "left":
-            print "Mr. Spock opens the door."
             poison()
     
         elif choice == "right":
-            print "Mr. Spock is annoyed by your actions and nerve pinches you."
             yourself()
     
         else:
@@ -169,17 +185,20 @@ def death():
     exit(0)
 
 def congrats():
-    print "Congratulations Ensign, you found Mr. Spock!"
-    print "Mr. Spock told you the code and now the Enterprise will not explode!"
-    print "Good job Ensign!"
+    print "As you make it past the door you glance back once last time and bow your head."
+    print "You have proved yourself to be worthy of joining the guild, but you remember all those who tried and failed before you."
+    print "The life of an assassin is not for everyone, but you have proven yourself beyond doubt."
+    print "You exit the maze to a round of applause from you instructors."
+    print "Your favourite instructor yells out only one piece of wisdom, the true lesson of the maze: Non mortem timemus, sed cogitationem mortis."
     exit(0)
 
 def start():
-    print "You are an apprentice assassain in the Morning Star Guild."
-    print "In order to become a full memeber of the guild you must survive the maze."
+    print "You are an apprentice assassin in the Morning Star Guild."
+    print "In order to become a full member of the guild you must survive the maze."
     print "Few who enter leave, but if you keep your wits about you, you might just make it out alive."
     print "Though probably not in one piece."
     print "Don't worry though, all the best assassins have a missing appendage here or there.\n"
+	print "Type 'hint' if you are not sure what your options are at any given task."
     
     choice = raw_input("Are you sure you want to go in? (y/n)")
     
@@ -196,4 +215,3 @@ def start():
 start()
 
 #END
-    
