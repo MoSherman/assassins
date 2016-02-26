@@ -1,7 +1,4 @@
 #THE MAZE OF THE ASSASSINS
-
-from sys import exit
-
 def enter():
     print "\nCongrats! You passed the first test, had you refused to enter the guild would not have been pleased..."
     print "There is no turning back now as the door shuts behind you."
@@ -38,7 +35,7 @@ def noenter():
     print "The guild is so displeased with you decision that they all attack you at once."
     print "It all happened so quickly no one was really sure what got you in the end."
     print "There wasn't enough left to figure it out really.\n"
-    exit(0)
+    playagain()
 
 def spinhx():
     print "Before you can even get your bearings you realize you are not alone.\n"
@@ -52,28 +49,27 @@ def spinhx():
     
     
     choice = raw_input("\n> ")
-    guesses = 0
+    guesses = 2
     
-    while choice != 'wind' or choice != 'hint' and guesses < 2:
-            
+    for guesse in range(guesses):
+        
         if choice == "wind":
             print "\nDespite being not very good with riddles, even you got this one eventually."
             print "The cranky spinhx shuffles into the corner to take a nap and you walk through the door before you.\n"
             lorr1()
-    
+        
         elif choice == "hint":
             print "\nThis well known riddle was taken from 'The Hobbit.'\n"
             choice = raw_input("> ")
         
         elif choice != "wind" or choice != "hint":
-            print "\n\'Really?\' says the sphinx \%r is you best guess? Do you read!? Try again!\'\n" % choice
-            guesses += 1
+            print "\n\'Really?\' says the sphinx %r is you best guess? Do you read!? Try again!\'\n" % choice
             choice = raw_input("> ")
         
-        else:
-            print "\n'My patience is gone and your futile attempts have made me hangry!' says the spinhx."
-            print "It grabs you and though you struggle mightily there is no escape!\n"
-            death()
+    if choice != "wind" or choice != "hint":
+        print "\n'My patience is gone and your futile attempts have made me hangry!' says the spinhx."
+        print "It grabs you and though you struggle mightily there is no escape!\n"
+        death()
 
 def tunnel():
     print "\nThe hell worm is a particularly nasty insect, more dragon cycloptic then worm, it\'s teeth are sharper than diamonds."
@@ -184,7 +180,7 @@ def death():
     print "At least you were brave enough to try! Maybe in your next life you can come back as a Moon Priest instead!"
     print "You were never very suited to this whole killing thing, much better to run around naked on the full moon."
     print "You probably make less friends that want to kill you that way too!\n"
-    exit(0)
+    playagain()
 
 def congrats():
     print "\nAs you make it past the door you glance back once last time and bow your head."
@@ -192,7 +188,22 @@ def congrats():
     print "The life of an assassin is not for everyone, but you have proven yourself beyond doubt."
     print "You exit the maze to a round of applause from you instructors."
     print "Your favourite instructor yells out only one piece of wisdom, the true lesson of the maze: Non mortem timemus, sed cogitationem mortis.\n"
-    exit(0)
+    playagain()
+
+def playagain():
+    print "Would you like to try and navigate the maze again?\n"
+    
+    choice = raw_input("(y/n) ")
+    
+    if choice == "y":
+        start()
+    
+    elif choice == "n":
+        noenter()
+    
+    else:
+        print "You must choose! \(Enter y or n only!\)\n"
+        choice = raw_input("(y/n) ")
 
 def start():
     print "\nYou are an apprentice assassin in the Morning Star Guild."
