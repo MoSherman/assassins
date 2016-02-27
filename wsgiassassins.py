@@ -87,33 +87,115 @@ html_footer = """
 """
 
 def enter():
-    return "\nCongrats! You passed the first test, had you refused to enter the guild would not have been pleased..."
-    return "There is no turning back now as the door shuts behind you."
-    return "You see however that there are no doors in the room you are in, just four stone walls. What will you do?\n"
+    return html_head + """
+    <div class="container-fluid bg-3 text-justify"> 
+        <div class="col-sm-12"> 
+            <p class=text-justify>
+                Congrats! You passed the first test, had you refused to enter the guild would not have been pleased...
+            </p>
+            <p class=text-justify>
+                There is no turning back now as the door shuts behind you.
+            </p>
+            <p class=text-justify>
+                You see however that there are no doors in the room you are in, just four stone walls. What will you do?
+            </p>            
+            <FORM value="form" action="enter_choice" method="post">
+                <P>            
+                    <input type="text" name="choice">
+                </P>
+            </FORM>
+        </div>
+    </div>
+</body>
+</html>
+"""
+def enter_choice(req):
     
-    choice = raw_input("> ")
+    info     = req.form
+    choice   = info['choice']
     
     while choice != "climb" or choice != "dig":
-    
-        if choice == "climb": 
-            return "\nYou test the strength of the wall and decide to climb over."
-            return "You manage to avoid the poison spikes on top of the wall just barely and land silently on the other side.\n"
-            spinhx()
+
+        if choice == "climb":
+            return html_head + """
+            <div class="container-fluid bg-3 text-justify"> 
+                <div class="col-sm-12"> 
+                    <p class=text-justify>
+                        You test the strength of the wall and decide to climb over.
+                    </p>
+                    <p class=text-justify>
+                        You manage to avoid the poison spikes on top of the wall just barely and land silently on the other side.
+                    </p>
+                    """ + spinhx() + "</div></div></body></html>"
     
         elif choice == "dig":
-            return "\nYou remove your foldable spade from your bag and begin to dig under the wall in front of you."
-            return "In hour into your digging you start to wonder if you made a bad choice."
-            return "This is confirmed a moment later when a hell worm bursts through the wall of you tunnel.\n"
-            
-            tunnel()
-        
-        elif choice == "hint":
-            return "\nYou can either 'climb' or 'dig.'\n"
-            choice = raw_input("> ")
+            return html_head + """
+            <div class="container-fluid bg-3 text-justify"> 
+                <div class="col-sm-12"> 
+                    <p class=text-justify>
+                        You remove your foldable spade from your bag and begin to dig under the wall in front of you
+                    </p>
+                    <p class=text-justify>
+                        An hour into your digging you start to wonder if you made a bad choice.
+                    </p>
+                    <p class=text-justify>
+                        This is confirmed a moment later when a hell worm bursts through the wall of your tunnel.
+                    </p>
+                    """ + tunnel() + "</div></div></body></html>"
     
-        else: 
-            return "\nYour favorite instructor takes pity on your poor start and yells out 'climb or dig you fool!'.\n"
-            choice = raw_input("> ")
+        elif choice == "hint":
+            return html_head + """
+            <div class="container-fluid bg-3 text-justify"> 
+                <div class="col-sm-12"> 
+                    <p class=text-justify>
+                        Congrats! You passed the first test, had you refused to enter the guild would not have been pleased...
+                    </p>
+                    <p class=text-justify>
+                        There is no turning back now as the door shuts behind you.
+                    </p>
+                    <p class=text-justify>
+                        You see however that there are no doors in the room you are in, just four stone walls. What will you do?
+                    </p> 
+                    <p class=text-justify>
+                        HINT: The choices here are 'climb' or 'dig.'
+                    </p> 
+                        <FORM value="form" action="enter_choice" method="post">
+                            <P>            
+                                <input type="text" name="choice">
+                            </P>
+                        </FORM>
+                </div>
+            </div>
+            </body>
+            </html>
+            """
+        
+        else:
+            return html_head + """
+            <div class="container-fluid bg-3 text-justify"> 
+                <div class="col-sm-12"> 
+                    <p class=text-justify>
+                        Congrats! You passed the first test, had you refused to enter the guild would not have been pleased...
+                    </p>
+                    <p class=text-justify>
+                        There is no turning back now as the door shuts behind you.
+                    </p>
+                    <p class=text-justify>
+                        You see however that there are no doors in the room you are in, just four stone walls. What will you do?
+                    </p> 
+                    <p class=text-justify>
+                        Your favorite instructor takes pity on your poor start and yells out 'climb or dig you fool!'
+                    </p> 
+                        <FORM value="form" action="enter_choice" method="post">
+                            <P>            
+                                <input type="text" name="choice">
+                            </P>
+                        </FORM>
+                </div>
+            </div>
+            </body>
+            </html>
+            """
 
 def noenter():
     return "\nYou choose not to enter the maze."
@@ -125,17 +207,53 @@ def noenter():
     playagain()
 
 def spinhx():
-    return "Before you can even get your bearings you realize you are not alone.\n"
-    return "Sitting silently before the only exit in front of you is a particularly grumpy looking spinhx."
-    return "You can not risk running around the spinhx or fighting it as both would mean certain death."
-    return "You must answer it's riddle."
-    return "The spinhx speaks suddenly in a deep voice but says something rather unexpected.\n"
-    return "'Look kid I\'m not really in the mood for human today so I\'ll give you an easy one.'\n"
-    return "'Voiceless it cries,\nWingless flutters,\nToothless bites,\nMouthless mutters."
-    return "\n'If you don\'t know what that is then you deserve to be eaten!' 'The sphinx yells.'"
+    return """
+    <p class=text-justify>
+        Before you can even get your bearings you realize you are not alone.
+    </p>
+    p class=text-justify>
+        Sitting silently before the only exit in front of you is a particularly grumpy looking spinhx.
+    </p>
+    <p class=text-justify>
+        You can not risk running around the spinhx or fighting it as both would mean certain death.
+    </p> 
+    <p class=text-justify>
+        You must answer it's riddle.
+    </p> 
+    <p class=text-justify>
+        The spinhx speaks suddenly in a deep voice but says something rather unexpected.
+    </p>
+    <p class=text-justify>
+        'Look kid I'm not really in the mood for human today so I'll give you an easy one.'
+    </p>
+    <p class=text-justify>
+        'Voiceless it cries,
+    </p>
+    <p class=text-justify>
+        Wingless flutters,
+    </p>
+    <p class=text-justify>
+        Toothless bites,
+    </p>
+    <p class=text-justify>
+        Mouthless mutters.
+    </p>
+    <p class=text-justify>
+        What is it?'
+    </p>
+    <p class=text-justify>
+        'If you don't know what that is then you deserve to be eaten!' The sphinx yells.
+    </p>
+    <FORM value="form" action="spinhx_choice" method="post">
+        <P>            
+            <input type="text" name="choice">
+        </P>
+    </FORM> """
+
+def spinhx_choice(req):
     
-    
-    choice = raw_input("\n> ")
+    info     = req.form
+    choice   = info['choice']
     guesses = 2
     
     for guesse in range(guesses):
@@ -299,9 +417,6 @@ def start():
     <div class="container-fluid bg-3 text-justify"> 
         <div class="col-sm-12"> 
             <p class=text-justify>
-        
-            </p>
-            <p class=text-justify>
                 You are an apprentice assassin in the Morning Star Guild.
             </p>
             <p class=text-justify>
@@ -321,9 +436,6 @@ def start():
             </p>
             <p class=text-justify>
                 Are you sure you want to go in? (y/n)
-            </p>
-            <p class=text-justify>
-                        
             </p>
             <FORM value="form" action="start_choice" method="post">
                 <P>            
@@ -349,8 +461,43 @@ def start_choice(req):
         return noenter()
     
     else:
-        return "You must choose! \(Enter y or n only!\)\n"
-        choice = raw_input("Are you sure you want to go in? (y/n) ")
+        return html_head + """
+        <div class="container-fluid bg-3 text-justify"> 
+            <div class="col-sm-12"> 
+            <p class=text-justify>
+                You are an apprentice assassin in the Morning Star Guild.
+            </p>
+            <p class=text-justify>
+                In order to become a full member of the guild you must survive the maze.
+            </p>
+            <p class=text-justify>
+                Few who enter leave, but if you keep your wits about you, you might just make it out alive.
+            </p>
+            <p class=text-justify>
+                Though probably not in one piece.
+            </p>
+            <p class=text-justify>
+                Don't worry though, all the best assassins have a missing appendage here or there.
+            </p>
+            <p class=text-justify>
+                Type 'hint' if you are not sure what your options are at any given task.
+            </p>
+            <p class=text-justify>
+                Are you sure you want to go in? (y/n)
+            </p>
+            <p class=text-justify>
+                You can only input 'y' or 'n' to procede. 
+            </p>
+            <FORM value="form" action="start_choice" method="post">
+                <P>            
+                    <input type="text" name="choice">
+                </P>
+            </FORM>
+        </div>
+    </div>
+</body>
+</html>
+"""
 
 
 #END
