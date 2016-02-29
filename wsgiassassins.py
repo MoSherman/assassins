@@ -211,7 +211,7 @@ def spinhx():
     <p class=text-justify>
         Before you can even get your bearings you realize you are not alone.
     </p>
-    p class=text-justify>
+    <p class=text-justify>
         Sitting silently before the only exit in front of you is a particularly grumpy looking spinhx.
     </p>
     <p class=text-justify>
@@ -254,27 +254,199 @@ def spinhx_choice(req):
     
     info     = req.form
     choice   = info['choice']
-    guesses = 2
+            
+    if choice == "wind":
+        return html_head + """
+        <div class="container-fluid bg-3 text-justify"> 
+                <div class="col-sm-12"> 
+                    <p class=text-justify>
+                        Despite being not very good with riddles, even you got this one eventually.
+                    </p>
+                    <p class=text-justify>
+                        The cranky spinhx shuffles into the corner to take a nap and you walk through the door before you.
+                    </p>
+                    """ + lorr1() + "</div></div></body></html>"
+        
+    elif choice == "hint":
+        return html_head + """
+            <div class="container-fluid bg-3 text-justify"> 
+                <div class="col-sm-12">
+                    <p class=text-justify>
+                        'Voiceless it cries,
+                    </p>
+                    <p class=text-justify>
+                        Wingless flutters,
+                    </p>
+                    <p class=text-justify>
+                        Toothless bites,
+                    </p>
+                    <p class=text-justify>
+                        Mouthless mutters.
+                    </p>
+                    <p class=text-justify>
+                        What is it?'
+                    </p>
+                    <p class=text-justify>
+                        HINT: This well known riddle was taken from 'The Hobbit.' 
+                    </p>
+                    <FORM value="form" action="spinhx_choice" method="post">
+                        <P>            
+                            <input type="text" name="choice">
+                        </P>
+                    </FORM>
+                </div>
+            </div>
+            </body>
+            </html>
+            """
+        
+    elif choice != "wind" or choice != "hint":
+            return html_head + """
+            <div class="container-fluid bg-3 text-justify"> 
+                    <div class="col-sm-12"> 
+                        <p class=text-justify>
+                            \'Really?\' says the sphinx \'\"%s\" is you best guess? Do you read!? Try again!\'
+                        </p>
+                        <FORM value="form" action="spinhx_try2" method="post">
+                            <P>            
+                                <input type="text" name="choice">
+                            </P>
+                        </FORM>
+                    </div>
+                </div>
+                </body>
+                </html>
+                """ % choice
+        
+def spinhx_try2(req):
+    info     = req.form
+    choice   = info['choice']
     
-    for guesse in range(guesses):
+    if choice == "wind":
+        return html_head + """
+        <div class="container-fluid bg-3 text-justify"> 
+                <div class="col-sm-12"> 
+                    <p class=text-justify>
+                        Despite being not very good with riddles, even you got this one eventually.
+                    </p>
+                    <p class=text-justify>
+                        The cranky spinhx shuffles into the corner to take a nap and you walk through the door before you.
+                    </p>
+                    """ + lorr1() + "</div></div></body></html>"
         
-        if choice == "wind":
-            return "\nDespite being not very good with riddles, even you got this one eventually."
-            return "The cranky spinhx shuffles into the corner to take a nap and you walk through the door before you.\n"
-            lorr1()
+    elif choice == "hint":
+        return html_head + """
+            <div class="container-fluid bg-3 text-justify"> 
+                <div class="col-sm-12">
+                    <p class=text-justify>
+                        'Voiceless it cries,
+                    </p>
+                    <p class=text-justify>
+                        Wingless flutters,
+                    </p>
+                    <p class=text-justify>
+                        Toothless bites,
+                    </p>
+                    <p class=text-justify>
+                        Mouthless mutters.
+                    </p>
+                    <p class=text-justify>
+                        What is it?'
+                    </p>
+                    <p class=text-justify>
+                        HINT: This well known riddle was taken from 'The Hobbit.' 
+                    </p>
+                    <FORM value="form" action="spinhx_try2" method="post">
+                        <P>            
+                            <input type="text" name="choice">
+                        </P>
+                    </FORM>
+                </div>
+            </div>
+            </body>
+            </html>
+            """
         
-        elif choice == "hint":
-            return "\nThis well known riddle was taken from 'The Hobbit.'\n"
-            choice = raw_input("> ")
+    elif choice != "wind" or choice != "hint":
+            return html_head + """
+            <div class="container-fluid bg-3 text-justify"> 
+                    <div class="col-sm-12"> 
+                        <p class=text-justify>
+                            \'Really?\' says the sphinx \'\"%s\" is you best guess? Do you read!? Last Chance!!\'
+                        </p>
+                        <FORM value="form" action="spinhx_try3" method="post">
+                            <P>            
+                                <input type="text" name="choice">
+                            </P>
+                        </FORM>
+                    </div>
+                </div>
+                </body>
+                </html>
+                """ % choice
         
-        elif choice != "wind" or choice != "hint":
-            return "\n\'Really?\' says the sphinx %r is you best guess? Do you read!? Try again!\'\n" % choice
-            choice = raw_input("> ")
+def spinhx_try3(req):
+    info     = req.form
+    choice   = info['choice']
+    
+    if choice == "wind":
+        return html_head + """
+        <div class="container-fluid bg-3 text-justify"> 
+                <div class="col-sm-12"> 
+                    <p class=text-justify>
+                        Despite being not very good with riddles, even you got this one eventually.
+                    </p>
+                    <p class=text-justify>
+                        The cranky spinhx shuffles into the corner to take a nap and you walk through the door before you.
+                    </p>
+                    """ + lorr1() + "</div></div></body></html>"
         
-    if choice != "wind" or choice != "hint":
-        return "\n'My patience is gone and your futile attempts have made me hangry!' says the spinhx."
-        return "It grabs you and though you struggle mightily there is no escape!\n"
-        death()
+    elif choice == "hint":
+        return html_head + """
+            <div class="container-fluid bg-3 text-justify"> 
+                <div class="col-sm-12">
+                    <p class=text-justify>
+                        'Voiceless it cries,
+                    </p>
+                    <p class=text-justify>
+                        Wingless flutters,
+                    </p>
+                    <p class=text-justify>
+                        Toothless bites,
+                    </p>
+                    <p class=text-justify>
+                        Mouthless mutters.
+                    </p>
+                    <p class=text-justify>
+                        What is it?'
+                    </p>
+                    <p class=text-justify>
+                        HINT: This well known riddle was taken from 'The Hobbit.' 
+                    </p>
+                    <FORM value="form" action="spinhx_try3" method="post">
+                        <P>            
+                            <input type="text" name="choice">
+                        </P>
+                    </FORM>
+                </div>
+            </div>
+            </body>
+            </html>
+            """
+        
+    elif choice != "wind" or choice != "hint":
+        return html_head + """
+            <div class="container-fluid bg-3 text-justify"> 
+                <div class="col-sm-12">
+                    <p class=text-justify>
+                        'My patience is gone and your futile attempts have made me hangry!' says the spinhx.
+                    </p>
+                    <p class=text-justify>
+                        It grabs you and though you struggle mightily there is no escape!
+                    </p>
+                    """ + death() + "</div></div></body></html>"
+
+        
 
 def tunnel():
     return "\nThe hell worm is a particularly nasty insect, more dragon cycloptic then worm, it\'s teeth are sharper than diamonds."
