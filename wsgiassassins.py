@@ -444,40 +444,103 @@ def spinhx_try3(req):
                     <p class=text-justify>
                         It grabs you and though you struggle mightily there is no escape!
                     </p>
-                    """ + death() + "</div></div></body></html>"
-
-        
+                    """ + death() + "</div></div></body></html>"        
 
 def tunnel():
-    return "\nThe hell worm is a particularly nasty insect, more dragon cycloptic then worm, it\'s teeth are sharper than diamonds."
-    return "Your instructors taught you well however and you know the only two ways to incapacitate a hell worm."
-    return "Where must you attack on the hell worm to survive?\n"
     
-    choice = raw_input("> ")
-    
-    while choice != "eye" or choice != "tongue":
-    
-        if choice == "eye": 
-            return "\nYou attack the hell worm's eye with your spade, blinding it."
-            return "It's a good thing you paid extra attention in \'Violent Creatures and How to Use Them: 101 \'."
-            return "You keep digging until you finally emerge on the other side of the wall.\n"
-            spinhx()
-    
-        elif choice == "tongue":
-            return "\nYou stabbed the hell worms tongue."
-            return "You nicked yourself in the process however on it\'s diamond teeth."
-            return "You better get out of the maze quickly before you bleed to death!\n"
-            return "You keep digging and eventually you emerge into the next room.\n"
-            spinhx()
-            
-        elif choice == "hint":
-            return "\nYou can either attack the hell worms 'eye' or 'tongue.'\n"
-            choice = raw_input("> ")
-    
-        else: 
-            return "\nYou couldn't remember where to attack and the hell worm ate you.\n"
-            death()
+    return """
+            <p class=text-justify>
+                The hell worm is a particularly nasty insect, more cycloptic dragon then worm, it\'s teeth are sharper than diamonds.
+            </p>
+            <p class=text-justify>
+                Your instructors taught you well however and you know the only two ways to incapacitate a hell worm.
+            </p>
+            <p class=text-justify>
+                Where must you attack on the hell worm to survive?
+            </p>            
+            <FORM value="form" action="tunnel_choice" method="post">
+                <P>            
+                    <input type="text" name="choice">
+                </P>
+            </FORM>
+            """
 
+def tunnel_choice(req):
+    info     = req.form
+    choice   = info['choice']
+    
+    if choice == "eye":
+        return html_head + """
+        <div class="container-fluid bg-3 text-justify"> 
+                <div class="col-sm-12"> 
+                    <p class=text-justify>
+                        You attack the hell worm's eye with your spade, blinding it.
+                    </p>
+                    <p class=text-justify>
+                        It's a good thing you paid extra attention in \'Violent Creatures and How to Use Them: 101 \'.
+                    </p>
+                    <p class=text-justify>
+                        You keep digging until you finally emerge on the other side of the wall.
+                    </p>
+                    """ + spinhx() + "</div></div></body></html>"
+    
+    elif choice == "tongue":
+        return html_head + """
+        <div class="container-fluid bg-3 text-justify"> 
+                <div class="col-sm-12"> 
+                    <p class=text-justify>
+                        You stabbed the hell worms tongue.
+                    </p>
+                    <p class=text-justify>
+                        You nicked yourself in the process however on it\'s diamond teeth.
+                    </p>
+                    <p class=text-justify>
+                        You better get out of the maze quickly before you bleed to death!
+                    </p>
+                    <p class=text-justify>
+                        You keep digging and eventually you emerge into the next room..
+                    </p>
+                    """ + spinhx() + "</div></div></body></html>"
+    
+    elif choice == "hint":
+        return html_head + """
+        <div class="container-fluid bg-3 text-justify"> 
+        <div class="col-sm-12"> 
+            <p class=text-justify>
+                The hell worm is a particularly nasty insect, more dragon cycloptic then worm, it\'s teeth are sharper than diamonds.
+            </p>
+            <p class=text-justify>
+                Your instructors taught you well however and you know the only two ways to incapacitate a hell worm.
+            </p>
+            <p class=text-justify>
+                Where must you attack on the hell worm to survive?
+            </p>
+            <p class=text-justify>
+                HINT: You can either attack the hell worms 'eye' or 'tongue.'
+            </p> 
+            <FORM value="form" action="tunnel_choice" method="post">
+                <P>            
+                    <input type="text" name="choice">
+                </P>
+            </FORM>
+        </div>
+    </div>
+</body>
+</html>
+"""
+    else:
+        return html_head + """
+            <div class="container-fluid bg-3 text-justify"> 
+                <div class="col-sm-12">
+                    <p class=text-justify>
+                        You couldn't remember where to attack and the hell worm ate you.
+                    </p>
+                    <p class=text-justify>
+                        Jeez what a nasty way to go!
+                    </p>
+                    """ + death() + "</div></div></body></html>"
+    
+    
 def poison():
     return "\nYou turn left and continue on until you enter another room."
     return "Suddenly the door slams shut behind you."
