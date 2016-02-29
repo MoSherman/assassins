@@ -560,60 +560,190 @@ def tunnel_choice(req):
     
     
 def poison():
-    return "\nYou turn left and continue on until you enter another room."
-    return "Suddenly the door slams shut behind you."
-    return "There will be no way out of this room by brute force you observe, as the walls, ceiling, and floor are made of troll steel."
-    return "A table stand in the the room upon which sits three glasses filled with unknown liquids."
-    return "\nApparently two of the glasses contain poison, while a third is a potion which will give you the ability to walk through walls for about 10 seconds."
-    return "On the wall of the room is written only this: Audaces fortuna iuvat."
-    return "You must drink either the 'yellow', 'green', or 'blue' liquids. Which will you choose?\n"
+    return """
+            <p class=text-justify>
+                You continue on until you enter another room.
+            </p>
+            <p class=text-justify>
+                Suddenly the door slams shut behind you.
+            </p>
+            <p class=text-justify>
+                There will be no way out of this room by brute force you observe, as the walls, ceiling, and floor are made of troll steel.
+            </p>
+            <p class=text-justify>
+                A table stand in the the room upon which sits three glasses filled with unknown liquids.
+            </p>
+            <p class=text-justify>
+                Apparently two of the glasses contain poison, while a third is a potion which will give you the ability to walk through walls for about 10 seconds.
+            </p>
+            <p class=text-justify>
+                On the wall of the room is written only this: Audaces fortuna iuvat.
+            </p>
+            <p class=text-justify>
+                You must drink either the 'yellow', 'green', or 'blue' liquids. Which will you choose?
+            </p>
+            <FORM value="form" action="poison_choice" method="post">
+                <P>            
+                    <input type="text" name="choice">
+                </P>
+            </FORM>
+            """
+
+def poison_choice(req):
+    info     = req.form
+    choice   = info['choice']
     
-    choice = raw_input("> ")
+    if choice == "yellow" or choice == "green" or choice == "blue":
+        return html_head + """
+        <div class="container-fluid bg-3 text-justify"> 
+                <div class="col-sm-12"> 
+                    <p class=text-justify>
+                        You know that fortune favours the bold.
+                    </p>
+                    <p class=text-justify>
+                        So you grab the %r liquid\'s glass and gulp it down.
+                    </p>
+                    <p class=text-justify>
+                        As you run at the wall, you really hope fortune also favours the reckless.
+                    </p>
+                    """ % choice.strip('choic()\'') + yourself() + "</div></div></body></html>" 
     
-    while choice != "yellow" or choice != "green" or choice != "blue":
+    elif choice == "hint":
+        return html_head + """
+        <div class="container-fluid bg-3 text-justify"> 
+                <div class="col-sm-12">
+                    <p class=text-justify>
+                        On the wall of the room is written only this: Audaces fortuna iuvat.
+                    </p>
+                    <p class=text-justify>
+                        You must drink either the 'yellow', 'green', or 'blue' liquids. Which will you choose?
+                    </p>
+                    <p class=text-justify>
+                        HINT: You only ever lose the games you don\'t play.
+                    </p>
+                    <p class=text-justify>
+                        Taking the leap can be the hardest part, but entering the arena is winning. 
+                    </p>
+                    <p class=text-justify>
+                        Still need some inpiration? Try <strong><a href="http://zenpencils.com/comic/142-timothy-ferriss-someday/" target="_blank">this.</a></strong>
+                    </p>
+                    <p class=text-justify>
+                        Or another favourite of mine: <strong><a href="http://zenpencils.com/comic/theodore-roosevelt-the-man-in-the-arena/" target="_blank">this.</a></strong>
+                    </p>
+                    <FORM value="form" action="poison_choice" method="post">
+                        <P>            
+                            <input type="text" name="choice">
+                        </P>
+                    </FORM>
+                </div>
+           </div>
+           </body>
+           </html>
+           """
     
-        if choice == "yellow" or choice == "green" or choice == "blue": 
-            return "\nYou know that fortune favours the bold."
-            return "So you grab the %r liquid\'s glass and gulp it down." % choice
-            return "As you sreturn at the wall, you really hope fortune also favours the reckless.\n"
-            yourself()
-            
-        else: 
-            return "\nYou choose not to drink any of the specified coloured liquids."
-            return "What you did not know was that fortune does not favour the coward, and had you drank from any of the glasses, you could have passed through the wall."
-            return "Instead you were stuck in the room until your bitter end.\n"
-            death() 
-            
+    else:
+        return html_head + """
+        <div class="container-fluid bg-3 text-justify"> 
+                <div class="col-sm-12">
+                    <p class=text-justify>
+                        You choose not to drink any of the specified coloured liquids.
+                    </p>
+                    <p class=text-justify>
+                        What you did not know was that fortune does not favour the coward, and had you drank from any of the glasses, you could have passed through the wall.
+                    </p>
+                    <p class=text-justify>
+                        Instead you were stuck in the room until your bitter end.
+                    </p>
+                    """ + death() + "</div></div></body></html>"            
             
 def yourself():
-    return "\nYou enter the next room and realize that only one obstacle stand between you and the exit to the maze."
-    return "At first you believe there to be a mirror in the room, but alas the person before you is very real."
-    return "Then you remember what makes a true assassin. Knowing that you can be your own worst enemy."
-    return "You know the doppelganger before you is identical in every way, conjured here by magic from the witches guild."
-    return "You begin to spar with yourself, but you seem to be evenly matched."
-    return "How will you get to the exit?\n"
+     return """
+            <p class=text-justify>
+                You enter the next room and realize that only one obstacle stands between you and the exit to the maze.
+            </p>
+            <p class=text-justify>
+                At first you believe there to be a mirror in the room, but alas the person before you is very real.
+            </p>
+            <p class=text-justify>
+                Then you remember what makes a true assassin. Knowing that you can be your own worst enemy.
+            </p>
+            <p class=text-justify>
+                You know the doppelganger before you is identical in every way, conjured here by magic from the witches guild.
+            </p>
+            <p class=text-justify>
+                You begin to spar with yourself, but you seem to be evenly matched.
+            </p>
+            <p class=text-justify>
+                How will you get to the exit?
+            </p>
+            <FORM value="form" action="yourself_choice" method="post">
+                <P>            
+                    <input type="text" name="choice">
+                </P>
+            </FORM>
+            """
+
+def yourself_choice(req):
+    info     = req.form
+    choice   = info['choice']
     
-    choice = raw_input("> ")
+    if choice == "kill":
+        return html_head + """
+        <div class="container-fluid bg-3 text-justify"> 
+                <div class="col-sm-12">
+                    <p class=text-justify>
+                        You know that even the best assassin can be beaten, and magic is no match for determination.
+                    </p>
+                    <p class=text-justify>
+                        You fight valiantly for hours and hours, and eventually the magic animating the doppelganger begins to fade.
+                    </p>
+                    <p class=text-justify>
+                        As the last wisps of smoke from what was once your doppelganger rises out of the maze, you stumble towards the exit.
+                    </p>
+                    """ + congrats() + "</div></div></body></html>"
     
-    while choice != "kill" or choice != "run":
+    elif choice == "run":
+        return html_head + """
+        <div class="container-fluid bg-3 text-justify"> 
+                <div class="col-sm-12">
+                    <p class=text-justify>
+                        You could not face yourself.
+                    </p>
+                    <p class=text-justify>
+                        You try to run around the doppelganger but he stabs you in the back like any good assassin would.
+                    </p>
+                    <p class=text-justify>
+                        You failed in your final test: believing in yourself, even against yourself.
+                    </p>
+                    """ + death() + "</div></div></body></html>"
     
-        if choice == "kill": 
-            return "\nYou know that even the best assassin can be beaten."
-            return "You fight valiantly for hours and hours, and eventually the magic animating the doppelganger begins to fade."
-            return "As the last wisps of smoke from what was once your doppelganger rises out of the maze, you stumble towards the exit.\n"
-            congrats()
+    else:
+        return html_head + """
+        <div class="container-fluid bg-3 text-justify"> 
+                <div class="col-sm-12">
+                    <p class=text-justify>
+                        How will you get to the exit?
+                    </p>
+                    <p class=text-justify>
+                        HINT: You can choose to either 'kill' or 'run.'
+                    </p>
+                    <p class=text-justify>
+                        But choose carefully, a mis-step here will certainly end in your death.
+                    </p>
+                    <p class=text-justify>
+                        Still not sure what to do? Try <strong><a href="http://zenpencils.com/comic/114-playing-the-game/" target="_blank">this.</a></strong>
+                    </p>
+                    <FORM value="form" action="poison_choice" method="post">
+                        <P>            
+                            <input type="text" name="choice">
+                        </P>
+                    </FORM>
+                </div>
+           </div>
+           </body>
+           </html>
+           """
     
-        elif choice == "run":
-            return "\nYou could not face yourself."
-            return "You try to run around the doppelganger but he stabs you in the back like any good assassin would."
-            return "You failed in your final test: believing in yourself, even against yourself.\n"
-            death()
-    
-        else: 
-            return "\nYou only have two choices: 'kill' the doppelganger or 'run' to the door.\n"
-            choice = raw_input("> ")  
-        
-        
 def lorr1():
     return """
             <p class=text-justify>
@@ -683,37 +813,84 @@ def lorr1_choice(req):
         
 
 def death():
-    return "\nYou failed to navigate the perils of the maze."
-    return "But don't feel too bad!."
-    return "At least you were brave enough to try! Maybe in your next life you can come back as a Moon Priest instead!"
-    return "You were never very suited to this whole killing thing, much better to run around naked on the full moon."
-    return "You probably make less friends that want to kill you that way too!\n"
-    playagain()
+    return """
+            <p class=text-justify>
+                You failed to navigate the perils of the maze.
+            </p>
+            <p class=text-justify>
+                But don't feel too bad!
+            </p>
+            <p class=text-justify>
+                At least you were brave enough to try! Maybe in your next life you can come back as a Moon Priest instead!
+            </p>
+            <p class=text-justify>
+                You were never very suited to this whole killing thing, much better to run around naked on the full moon.
+            </p>
+            <p class=text-justify>
+                You probably make less friends that want to kill you that way too!
+            </p>
+            """ + playagain()
 
 def congrats():
-    return "\nAs you make it past the door you glance back once last time and bow your head."
-    return "You have proved yourself to be worthy of joining the guild, but you remember all those who tried and failed before you."
-    return "The life of an assassin is not for everyone, but you have proven yourself beyond doubt."
-    return "You exit the maze to a round of applause from you instructors."
-    return "Your favourite instructor yells out only one piece of wisdom, the true lesson of the maze: Non mortem timemus, sed cogitationem mortis.\n"
-    playagain()
+    return """
+            <p class=text-justify>
+                As you make it past the door you glance back once last time and bow your head.
+            </p>
+            <p class=text-justify>
+                You have proved yourself to be worthy of joining the guild, but you remember all those who tried and failed before you.
+            </p>
+            <p class=text-justify>
+                The life of an assassin is not for everyone, but you have proven yourself beyond doubt.
+            </p>
+            <p class=text-justify>
+                You exit the maze to a round of applause from you instructors.
+            </p>
+            <p class=text-justify>
+                Your favourite instructor yells out only one piece of wisdom, the true lesson of the maze: Non mortem timemus, sed cogitationem mortis.
+            </p>
+            """ + playagain()
 
 def playagain():
-    return "Would you like to try and navigate the maze again?\n"
-    
-    choice = raw_input("(y/n) ")
+    return """
+            <p class=text-justify>
+                Would you like to try and navigate the maze again?  (Enter y or n only!)  
+            </p>
+            <FORM value="form" action="playagain_choice" method="post">
+                <P>            
+                    <input type="text" name="choice">
+                </P>
+            </FORM>
+            """
+
+def playagain_choice(req):
+    info     = req.form
+    choice   = info['choice']
     
     if choice == "y":
-        start()
+        return start()
     
     elif choice == "n":
-        noenter()
-    
+        return about()
     else:
-        return "You must choose! \(Enter y or n only!\)\n"
-        choice = raw_input("(y/n) ")
-
-    
+        return html_head + """
+        <div class="container-fluid bg-3 text-justify"> 
+        <div class="col-sm-12"> 
+            <p class=text-justify>
+                Would you like to try and navigate the maze again?  (Enter y or n only!)
+            </p>
+            <p class=text-justify>
+                You can only eneter 'y' for yes or 'n' for no.
+            </p>
+            <FORM value="form" action="playagain_choice" method="post">
+                <P>            
+                    <input type="text" name="choice">
+                </P>
+            </FORM>
+        </div>
+        </div>
+        </body>
+        </html>
+        """
         
 def start():
     return html_head + """
@@ -750,7 +927,6 @@ def start():
 </body>
 </html>
 """
-#<input type=\"text\" color:#FFFFFF value=\">\" style=\"background-color:transparent;border:0px solid white;>
 
 def start_choice(req):
     
@@ -801,6 +977,23 @@ def start_choice(req):
 </body>
 </html>
 """
+
+def about():
+
+    return html_head + """
+    <div class="container-fluid bg-3 text-center">    
+    <h1><strong>About The Assassains Maze</strong></h1><br>
+    <div class="col-sm-2"> 
+    </div>
+    <div class="col-sm-8"> 
+        <p class=text-justify>This simple game is an ongoing attempt to try out my Python skills and show them off. This project uses a Bootstrap template to be accesable to both desktop and mobile users. Future iterations of the project will hopefully include many more rooms, images of the scenes, a 'decision' tracker, and improved aesthetics. The code for this project can be viewed at my <strong><a href="https://github.com/MoSherman/assassins.git" target="_blank">GitHub.com assassins repository</a><strong>.</p>
+    </div>
+    <div class="col-sm-2"> 
+    </div>
+    </div>
+    </body>
+    </html>
+    """
 
 
 #END
