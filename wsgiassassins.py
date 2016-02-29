@@ -1,6 +1,7 @@
 #THE MAZE OF THE ASSASSINS
 
 from mod_python import apache
+import os
 
 html_head = """
 <html lang="en">
@@ -66,12 +67,12 @@ html_head = """
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="assassin.py">Play Again</a></li>
+        <li><a href="start">Play Again</a></li>
         <li><a href="map">Map</a></li>
         <li><a href="about">About</a></li>    
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="https://github.com/MoSherman/assassins" target="_blank"> GitHub Repo</a></li>
+        <li><a href="https://github.com/MoSherman/assassins" target="_blank"> > GitHub Repo</a></li>
       </ul>
     </div>
   </div>
@@ -986,7 +987,7 @@ def about():
     <div class="col-sm-2"> 
     </div>
     <div class="col-sm-8"> 
-        <p class=text-justify>This simple game is an ongoing attempt to try out my Python skills and show them off. This project uses a Bootstrap template to be accesable to both desktop and mobile users. Future iterations of the project will hopefully include many more rooms, images of the scenes, a 'decision' tracker, and improved aesthetics. The code for this project can be viewed at my <strong><a href="https://github.com/MoSherman/assassins.git" target="_blank">GitHub.com assassins repository</a><strong>.</p>
+        <p class=text-justify>This simple game is an ongoing attempt to try out my Python skills and show them off. This project uses a Bootstrap template to be accesable to both desktop and mobile users. Future iterations of the project will hopefully include many more rooms, images of the scenes, a 'decision' tracker, and improved aesthetics. The code for this project can be viewed at my <u><strong><a href="https://github.com/MoSherman/assassins.git" target="_blank">GitHub.com assassins repository</a><strong></u>.</p>
     </div>
     <div class="col-sm-2"> 
     </div>
@@ -994,6 +995,24 @@ def about():
     </body>
     </html>
     """
+
+def map():
+
+    return html_head + """
+    <div class="container-fluid bg-3 text-center">    
+    <h1><strong>Map of The Assassains Maze</strong></h1><br>
+    <div class="col-sm-2"> 
+    </div>
+    <div class="col-sm-8"> 
+        <p class=text-justify>The maze is relatively simple for now, but as I learn more skills I hope to expand the maze. If you want to check on any ongoing updates to the maze check my <u><strong><a href="https://github.com/MoSherman/assassins.git" target="_blank">GitHub.com assassins repository</a><strong><u>.</p>
+        <p class=text-justify>Avaible on my <u><strong><a href="https://twitter.com/MoriahEVSherman/status/704290248717705217/photo/1" target="_blank">Twitter</a><strong></u>.</p> 
+    </div>
+    <div class="col-sm-2"> 
+    </div>
+    </div>
+    </body>
+    </html>
+    """ 
 
 
 #END
