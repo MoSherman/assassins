@@ -198,13 +198,31 @@ def enter_choice(req):
             """
 
 def noenter():
-    return "\nYou choose not to enter the maze."
-    return "This is a mistake."
-    return "'You have failed the first test' yells the master assassin, 'cowards never prosper!'"
-    return "The guild is so displeased with you decision that they all attack you at once."
-    return "It all happened so quickly no one was really sure what got you in the end."
-    return "There wasn't enough left to figure it out really.\n"
-    playagain()
+    return html_head + """
+    <div class="container-fluid bg-3 text-justify"> 
+        <div class="col-sm-12"> 
+            <p class=text-justify>
+                You choose not to enter the maze.
+            </p>
+            <p class=text-justify>
+                This is a mistake.
+            </p>
+            <p class=text-justify>
+                'You have failed the first test' yells the master assassin.
+            </p>
+            <p class=text-justify>
+                'A man that flies from his fear may find that he has only taken a short cut to meet it.' he finishes in a whisper.
+            </p>
+            <p class=text-justify>
+                The guild is so displeased with your decision that they all attack you at once.
+            </p>
+            <p class=text-justify>
+                It all happened so quickly no one was really sure what got you in the end.
+            </p>
+            <p class=text-justify>
+                There wasn't enough left to figure it out really.
+            </p>
+            """ + playagain() + "</div></div></body></html>"
 
 def spinhx():
     return """
@@ -597,22 +615,72 @@ def yourself():
         
         
 def lorr1():
-    return "\nYou continue on until the path ends."
-    return "You must go left or right"
-    return "Which way will you go?\n"
-    choice = raw_input("> ")
+    return """
+            <p class=text-justify>
+                You continue on until the path beyond the door ends.
+            </p>
+            <p class=text-justify>
+                You must go left or right.
+            </p>
+            <p class=text-justify>
+                Which way will you go?
+            </p>    
+            <FORM value="form" action="lorr1_choice" method="post">
+                <P>            
+                    <input type="text" name="choice">
+                </P>
+            </FORM>
+            """
+
+def lorr1_choice(req):
+    info     = req.form
+    choice   = info['choice']
     
-    while choice != "left" or choice != "right":
+    if choice == "left":
+         return html_head + """
+            <div class="container-fluid bg-3 text-justify"> 
+                <div class="col-sm-12">
+                    <p class=text-justify>
+                        You chose left, lets hope it was a good choice!
+                    </p>
+                    """ + poison() + "</div></div></body></html>"
     
-        if choice == "left":
-            poison()
-    
-        elif choice == "right":
-            yourself()
-    
-        else:
-            return "\nYour choices are to go 'left' or 'right'. Seriously how did you even get to this point!?\n"
-            choice = raw_input("> ")
+    elif choice == "right":
+        return html_head + """
+            <div class="container-fluid bg-3 text-justify"> 
+                <div class="col-sm-12">
+                    <p class=text-justify>
+                        You chose right, lets hope it was a good choice!
+                    </p>
+                    """ + yourself() + "</div></div></body></html>"
+        
+    else:
+        return html_head + """
+    <div class="container-fluid bg-3 text-justify"> 
+        <div class="col-sm-12"> 
+            <p class=text-justify>
+                You continue on until the path beyond the door ends.
+            </p>
+            <p class=text-justify>
+                You must go left or right.
+            </p>
+            <p class=text-justify>
+                Which way will you go?
+            </p>
+            <p class=text-justify>
+                You can\'t possibly need a 'hint' here!?! It\'s only 'left' or 'right.'
+            </p>
+            <FORM value="form" action="lorr1_choice" method="post">
+                <P>            
+                    <input type="text" name="choice">
+                </P>
+            </FORM>
+        </div>
+    </div>
+</body>
+</html>
+"""
+        
 
 def death():
     return "\nYou failed to navigate the perils of the maze."
