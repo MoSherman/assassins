@@ -127,7 +127,7 @@ def enter_choice(req):
                     <p class=text-justify>
                         You manage to avoid the poison spikes on top of the wall just barely and land silently on the other side.
                     </p>
-                    """ + spinhx() + "</div></div></body></html>"
+                    """ + sphinx() + "</div></div></body></html>"
     
         elif choice == "dig":
             return html_head + """
@@ -185,7 +185,7 @@ def enter_choice(req):
                         You see however that there are no doors in the room you are in, just four stone walls. What will you do?
                     </p> 
                     <p class=text-justify>
-                        Your favorite instructor takes pity on your poor start and yells out 'climb or dig you fool!'
+                        Your favourite instructor takes pity on your poor start and yells out 'climb or dig you fool!'
                     </p> 
                         <FORM value="form" action="enter_choice" method="post">
                             <P>            
@@ -225,22 +225,22 @@ def noenter():
             </p>
             """ + playagain() + "</div></div></body></html>"
 
-def spinhx():
+def sphinx():
     return """
     <p class=text-justify>
         Before you can even get your bearings you realize you are not alone.
     </p>
     <p class=text-justify>
-        Sitting silently before the only exit in front of you is a particularly grumpy looking spinhx.
+        Sitting silently before the only exit in front of you is a particularly grumpy looking sphinx.
     </p>
     <p class=text-justify>
-        You can not risk running around the spinhx or fighting it as both would mean certain death.
+        You can not risk running around the sphinx or fighting it as both would mean certain death.
     </p> 
     <p class=text-justify>
         You must answer it's riddle.
     </p> 
     <p class=text-justify>
-        The spinhx speaks suddenly in a deep voice but says something rather unexpected.
+        The sphinx speaks suddenly in a deep voice but says something rather unexpected.
     </p>
     <p class=text-justify>
         'Look kid I'm not really in the mood for human today so I'll give you an easy one.'
@@ -263,13 +263,13 @@ def spinhx():
     <p class=text-justify>
         'If you don't know what that is then you deserve to be eaten!' The sphinx yells.
     </p>
-    <FORM value="form" action="spinhx_choice" method="post">
+    <FORM value="form" action="sphinx_choice" method="post">
         <P>            
             <input type="text" name="choice">
         </P>
     </FORM> """
 
-def spinhx_choice(req):
+def sphinx_choice(req):
     
     info     = req.form
     choice   = info['choice']
@@ -282,7 +282,7 @@ def spinhx_choice(req):
                         Despite being not very good with riddles, even you got this one eventually.
                     </p>
                     <p class=text-justify>
-                        The cranky spinhx shuffles into the corner to take a nap and you walk through the door before you.
+                        The cranky sphinx shuffles into the corner to take a nap and you walk through the door before you.
                     </p>
                     """ + lorr1() + "</div></div></body></html>"
         
@@ -308,7 +308,7 @@ def spinhx_choice(req):
                     <p class=text-justify>
                         HINT: This well known riddle was taken from 'The Hobbit.' 
                     </p>
-                    <FORM value="form" action="spinhx_choice" method="post">
+                    <FORM value="form" action="sphinx_choice" method="post">
                         <P>            
                             <input type="text" name="choice">
                         </P>
@@ -326,7 +326,7 @@ def spinhx_choice(req):
                         <p class=text-justify>
                             \'Really?\' says the sphinx \'\"%s\" is you best guess? Do you read!? Try again!\'
                         </p>
-                        <FORM value="form" action="spinhx_try2" method="post">
+                        <FORM value="form" action="sphinx_try2" method="post">
                             <P>            
                                 <input type="text" name="choice">
                             </P>
@@ -337,7 +337,7 @@ def spinhx_choice(req):
                 </html>
                 """ % choice
         
-def spinhx_try2(req):
+def sphinx_try2(req):
     info     = req.form
     choice   = info['choice']
     
@@ -349,7 +349,7 @@ def spinhx_try2(req):
                         Despite being not very good with riddles, even you got this one eventually.
                     </p>
                     <p class=text-justify>
-                        The cranky spinhx shuffles into the corner to take a nap and you walk through the door before you.
+                        The cranky sphinx shuffles into the corner to take a nap and you walk through the door before you.
                     </p>
                     """ + lorr1() + "</div></div></body></html>"
         
@@ -375,7 +375,7 @@ def spinhx_try2(req):
                     <p class=text-justify>
                         HINT: This well known riddle was taken from 'The Hobbit.' 
                     </p>
-                    <FORM value="form" action="spinhx_try2" method="post">
+                    <FORM value="form" action="sphinx_try2" method="post">
                         <P>            
                             <input type="text" name="choice">
                         </P>
@@ -393,7 +393,7 @@ def spinhx_try2(req):
                         <p class=text-justify>
                             \'Really?\' says the sphinx \'\"%s\" is you best guess? Do you read!? Last Chance!!\'
                         </p>
-                        <FORM value="form" action="spinhx_try3" method="post">
+                        <FORM value="form" action="sphinx_try3" method="post">
                             <P>            
                                 <input type="text" name="choice">
                             </P>
@@ -404,7 +404,7 @@ def spinhx_try2(req):
                 </html>
                 """ % choice
         
-def spinhx_try3(req):
+def sphinx_try3(req):
     info     = req.form
     choice   = info['choice']
     
@@ -416,7 +416,7 @@ def spinhx_try3(req):
                         Despite being not very good with riddles, even you got this one eventually.
                     </p>
                     <p class=text-justify>
-                        The cranky spinhx shuffles into the corner to take a nap and you walk through the door before you.
+                        The cranky sphinx shuffles into the corner to take a nap and you walk through the door before you.
                     </p>
                     """ + lorr1() + "</div></div></body></html>"
         
@@ -442,7 +442,7 @@ def spinhx_try3(req):
                     <p class=text-justify>
                         HINT: This well known riddle was taken from 'The Hobbit.' 
                     </p>
-                    <FORM value="form" action="spinhx_try3" method="post">
+                    <FORM value="form" action="sphinx_try3" method="post">
                         <P>            
                             <input type="text" name="choice">
                         </P>
@@ -458,7 +458,7 @@ def spinhx_try3(req):
             <div class="container-fluid bg-3 text-justify"> 
                 <div class="col-sm-12">
                     <p class=text-justify>
-                        'My patience is gone and your futile attempts have made me hangry!' says the spinhx.
+                        'My patience is gone and your futile attempts have made me hangry!' says the sphinx.
                     </p>
                     <p class=text-justify>
                         It grabs you and though you struggle mightily there is no escape!
@@ -501,7 +501,7 @@ def tunnel_choice(req):
                     <p class=text-justify>
                         You keep digging until you finally emerge on the other side of the wall.
                     </p>
-                    """ + spinhx() + "</div></div></body></html>"
+                    """ + sphinx() + "</div></div></body></html>"
     
     elif choice == "tongue":
         return html_head + """
@@ -519,7 +519,7 @@ def tunnel_choice(req):
                     <p class=text-justify>
                         You keep digging and eventually you emerge into the next room..
                     </p>
-                    """ + spinhx() + "</div></div></body></html>"
+                    """ + sphinx() + "</div></div></body></html>"
     
     elif choice == "hint":
         return html_head + """
@@ -626,7 +626,7 @@ def poison_choice(req):
                         Taking the leap can be the hardest part, but entering the arena is winning. 
                     </p>
                     <p class=text-justify>
-                        Still need some inpiration? Try <strong><a href="http://zenpencils.com/comic/142-timothy-ferriss-someday/" target="_blank">this.</a></strong>
+                        Still need some inspiration? Try <strong><a href="http://zenpencils.com/comic/142-timothy-ferriss-someday/" target="_blank">this.</a></strong>
                     </p>
                     <p class=text-justify>
                         Or another favourite of mine: <strong><a href="http://zenpencils.com/comic/theodore-roosevelt-the-man-in-the-arena/" target="_blank">this.</a></strong>
@@ -966,7 +966,7 @@ def start_choice(req):
                 Are you sure you want to go in? (y/n)
             </p>
             <p class=text-justify>
-                You can only input 'y' or 'n' to procede. 
+                You can only input 'y' or 'n' to proceed. 
             </p>
             <FORM value="form" action="start_choice" method="post">
                 <P>            
@@ -987,7 +987,7 @@ def about():
     <div class="col-sm-2"> 
     </div>
     <div class="col-sm-8"> 
-        <p class=text-justify>This simple game is an ongoing attempt to try out my Python skills and show them off. This project uses a Bootstrap template to be accesable to both desktop and mobile users. Future iterations of the project will hopefully include many more rooms, images of the scenes, a 'decision' tracker, and improved aesthetics. The code for this project can be viewed at my <u><strong><a href="https://github.com/MoSherman/assassins.git" target="_blank">GitHub.com assassins repository</a></strong></u>.</p>
+        <p class=text-justify>This simple game is an ongoing attempt to try out my Python skills and show them off. This project uses a Bootstrap template to be accessible to both desktop and mobile users. Future iterations of the project will hopefully include many more rooms, images of the scenes, a 'decision' tracker, and improved aesthetics. The code for this project can be viewed at my <u><strong><a href="https://github.com/MoSherman/assassins.git" target="_blank">GitHub.com assassins repository</a></strong></u>.</p>
         <p class=text-justify>If you would like to play the game in your terminal, please download the <u><strong><a href="https://github.com/MoSherman/assassins/blob/master/assassins.py" target="_blank">assassins.py</a></strong></u> file from my GitHub profile. Save in a directory of your choosing and open a terminal to that directory. Enter the following command: <strong>python assassins.py</strong>, and the game will begin running in your terminal.
     </div>
     <div class="col-sm-2"> 
