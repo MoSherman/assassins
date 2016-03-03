@@ -72,7 +72,7 @@ html_head = """
         <li><a href="about">About</a></li>    
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="https://github.com/MoSherman/assassins" target="_blank"> > GitHub Repo</a></li>
+        <li><a href="https://github.com/MoSherman/assassins" target="_blank"> GitHub Repo</a></li>
       </ul>
     </div>
   </div>
@@ -987,7 +987,8 @@ def about():
     <div class="col-sm-2"> 
     </div>
     <div class="col-sm-8"> 
-        <p class=text-justify>This simple game is an ongoing attempt to try out my Python skills and show them off. This project uses a Bootstrap template to be accesable to both desktop and mobile users. Future iterations of the project will hopefully include many more rooms, images of the scenes, a 'decision' tracker, and improved aesthetics. The code for this project can be viewed at my <u><strong><a href="https://github.com/MoSherman/assassins.git" target="_blank">GitHub.com assassins repository</a><strong></u>.</p>
+        <p class=text-justify>This simple game is an ongoing attempt to try out my Python skills and show them off. This project uses a Bootstrap template to be accesable to both desktop and mobile users. Future iterations of the project will hopefully include many more rooms, images of the scenes, a 'decision' tracker, and improved aesthetics. The code for this project can be viewed at my <u><strong><a href="https://github.com/MoSherman/assassins.git" target="_blank">GitHub.com assassins repository</a></strong></u>.</p>
+        <p class=text-justify>If you would like to play the game in your terminal, please download the <u><strong><a href="https://github.com/MoSherman/assassins/blob/master/assassins.py" target="_blank">assassins.py</a></strong></u> file from my GitHub profile. Save in a directory of your choosing and open a terminal to that directory. Enter the following command: <strong>python assassins.py</strong>, and the game will begin running in your terminal.
     </div>
     <div class="col-sm-2"> 
     </div>
@@ -1004,8 +1005,8 @@ def map():
     <div class="col-sm-2"> 
     </div>
     <div class="col-sm-8"> 
-        <p class=text-justify>The maze is relatively simple for now, but as I learn more skills I hope to expand the maze. If you want to check on any ongoing updates to the maze check my <u><strong><a href="https://github.com/MoSherman/assassins.git" target="_blank">GitHub.com assassins repository</a><strong><u>.</p>
-        <p class=text-justify>Avaible on my <u><strong><a href="https://twitter.com/MoriahEVSherman/status/704290248717705217/photo/1" target="_blank">Twitter</a><strong></u>.</p> 
+        <p class=text-justify>The maze is relatively simple for now, but as I learn more skills I hope to expand the maze. If you want to check on any ongoing updates to the maze check my <u><strong><a href="https://github.com/MoSherman/assassins.git" target="_blank">GitHub.com assassins repository</a></strong></u>.</p>
+        <p class=text-justify>The map is available on my <u><strong><a href="https://twitter.com/MoriahEVSherman/status/704290248717705217/photo/1" target="_blank">Twitter</a><strong></u>.</p> 
     </div>
     <div class="col-sm-2"> 
     </div>
