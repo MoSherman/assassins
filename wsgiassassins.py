@@ -63,7 +63,7 @@ html_head = """
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="wsgiassassins.py/start">The Maze of the Assassins</a>
+      <a class="navbar-brand" href="start">The Maze of the Assassins</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
@@ -626,10 +626,10 @@ def poison_choice(req):
                         Taking the leap can be the hardest part, but entering the arena is winning. 
                     </p>
                     <p class=text-justify>
-                        Still need some inspiration? Try <strong><a href="http://zenpencils.com/comic/142-timothy-ferriss-someday/" target="_blank">this.</a></strong>
+                        Still need some inspiration? Try <u><strong><a href="http://zenpencils.com/comic/142-timothy-ferriss-someday/" target="_blank">this.</a></strong></u>
                     </p>
                     <p class=text-justify>
-                        Or another favourite of mine: <strong><a href="http://zenpencils.com/comic/theodore-roosevelt-the-man-in-the-arena/" target="_blank">this.</a></strong>
+                        Or another favourite of mine: <u><strong><a href="http://zenpencils.com/comic/theodore-roosevelt-the-man-in-the-arena/" target="_blank">this.</a></strong></u>
                     </p>
                     <FORM value="form" action="poison_choice" method="post">
                         <P>            
@@ -732,9 +732,9 @@ def yourself_choice(req):
                         But choose carefully, a mis-step here will certainly end in your death.
                     </p>
                     <p class=text-justify>
-                        Still not sure what to do? Try <strong><a href="http://zenpencils.com/comic/114-playing-the-game/" target="_blank">this.</a></strong>
+                        Still not sure what to do? Try <u><strong><a href="http://zenpencils.com/comic/114-playing-the-game/" target="_blank">this.</a></strong></u>
                     </p>
-                    <FORM value="form" action="poison_choice" method="post">
+                    <FORM value="form" action="yourself_choice" method="post">
                         <P>            
                             <input type="text" name="choice">
                         </P>
